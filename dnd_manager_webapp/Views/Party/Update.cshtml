@@ -1,7 +1,7 @@
 ﻿@using dnd_manager_webapp.Models
 @model Character
 
-<h1>Update @Model.Name</h1>
+<h1>Modify @Model.Name</h1>
 
 <form action="update" method="post" enctype="multipart/form-data" style="display: flex; flex-direction: column">
     
@@ -13,5 +13,5 @@
     @Html.LabelFor(t => t.Class)
     @Html.DropDownListFor(t => t.Class, Html.GetEnumSelectList(typeof(Classes)))
 
-    <input type="submit" value="Update" />
+    <input type="submit" value="Modify" />
 </form>
