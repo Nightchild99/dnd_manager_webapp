@@ -21,12 +21,11 @@
         @: <td>@item.Race</td>
         @: <td>@item.Class</td>
         @: <td>@item.Description</td>
-        //@: <td>
-        //@:    <a href="/hero/delete?name=@item.Name">Delete</a>
-        //@:    <a href="/hero/update?name=@item.Name">Update</a>
-        //@: </td>
+        @: <td>
+        @:    <a href="/party/levelup?name=@item.Name">Level Up</a>
+        @:    <a href="/party/delete?name=@item.Name">Delete</a>
+        @:    <a href="/party/update?name=@item.Name">Update</a>
+        @: </td>
         @: </tr>
     }
 </table>
-
-<a href="/party/create">Create new character</a>

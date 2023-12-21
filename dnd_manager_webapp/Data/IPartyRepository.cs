@@ -6,6 +6,7 @@ namespace dnd_manager_webapp.Data
     {
         void Create(Character character);
         void Delete(string name);
+        void LevelUp(string name);
         IEnumerable<Character> Read();
         Character? Read(string name);
         Character? ReadFromId(string id);

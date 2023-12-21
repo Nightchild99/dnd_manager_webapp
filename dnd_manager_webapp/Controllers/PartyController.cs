@@ -87,5 +87,12 @@ namespace dnd_manager_webapp.Controllers
                 return BadRequest();
             }
         }
+
+        [HttpGet]
+        public IActionResult LevelUp(string name)
+        {
+            _repo.LevelUp(name);
+            return RedirectToAction(nameof(Index));
+        }
     }
 }

@@ -35,6 +35,14 @@ namespace dnd_manager_webapp.Data
             return context.Characters.FirstOrDefault(t => t.Id == id);
         }
 
+        public void LevelUp(string name)
+        {
+            var character = Read(name);
+            character.Level++;
+            character.Description = $"{character.Name} is a level {character.Level} {character.Race} {character.Class}.";
+            context.SaveChanges();
+        }
+
         public void Update(Character character)
         {
             var old = Read(character.Name);
