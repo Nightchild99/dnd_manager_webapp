@@ -10,7 +10,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddTransient<IPartyRepository, PartyRepository>();
 builder.Services.AddDbContext<PartyDbContext>(opt =>
 {
-    opt.UseInMemoryDatabase("db");
+    opt.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=dnd;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
 });
 var app = builder.Build();
 if (!app.Environment.IsDevelopment())

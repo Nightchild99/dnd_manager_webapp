@@ -33,9 +33,14 @@ namespace dnd_manager_webapp.Controllers
                 stream.Read(buffer, 0, (int)picturedata.Length);
                 string filename = character.Id + "." + picturedata.FileName.Split('.')[1];
                 character.ImageFileName = filename;
+                System.IO.File.WriteAllBytes(Path.Combine("wwwroot", "images", filename), buffer);
                 character.Data = buffer;
                 character.ContentType = picturedata.ContentType;
             }
+
+            character.Description = $"{character.Name} is a level {character.Level} {character.Race} {character.Class}.";
+            var errors = ModelState.Values.SelectMany(v => v.Errors);
+
             if (!ModelState.IsValid)
             {
                 return View(character);

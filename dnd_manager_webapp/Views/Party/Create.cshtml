@@ -1,0 +1,25 @@
+﻿@using dnd_manager_webapp.Models
+@model Character
+
+<h1>Create your Character</h1>
+
+<form action="create" method="post" enctype="multipart/form-data" style="display: flex; flex-direction: column">
+    @Html.LabelFor(t => t.Name)
+    @Html.EditorFor(t => t.Name)
+    @Html.ValidationMessageFor(t => t.Name)
+
+    @Html.LabelFor(t => t.Level)
+    @Html.EditorFor(t => t.Level)
+    @Html.ValidationMessageFor(t => t.Level)
+
+    @Html.LabelFor(t => t.Race)
+    @Html.DropDownListFor(t => t.Race, Html.GetEnumSelectList(typeof(Races)))
+
+    @Html.LabelFor(t => t.Class)
+    @Html.DropDownListFor(t => t.Class, Html.GetEnumSelectList(typeof(Classes)))
+
+    <label>Picture</label>
+    <input type="file" name="picturedata" />
+    <input type="submit" value="Create" />
+
+</form>

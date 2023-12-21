@@ -40,7 +40,7 @@ namespace dnd_manager_webapp.Models
         [MinLength(3)]
         [MaxLength(50)]
         public string Name { get; set; }
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
         [Required]
         public Races Race { get; set; }
@@ -61,7 +61,6 @@ namespace dnd_manager_webapp.Models
         public Character()
         {
             Id = Guid.NewGuid().ToString();
-            Description = $"{Name} is a level {Level} {Race} {Class}.";
         }
     }
 }
