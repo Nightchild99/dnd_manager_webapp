@@ -39,7 +39,8 @@ namespace dnd_manager_webapp.Controllers
             }
 
             character.Description = $"{character.Name} is a level {character.Level} {character.Race} {character.Class}.";
-            var errors = ModelState.Values.SelectMany(v => v.Errors);
+
+            //var errors = ModelState.Values.SelectMany(v => v.Errors);
 
             if (!ModelState.IsValid)
             {
