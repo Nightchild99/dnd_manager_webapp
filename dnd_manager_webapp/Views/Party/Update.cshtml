@@ -1,0 +1,17 @@
+﻿@using dnd_manager_webapp.Models
+@model Character
+
+<h1>Update @Model.Name</h1>
+
+<form action="update" method="post" enctype="multipart/form-data" style="display: flex; flex-direction: column">
+    
+    @Html.HiddenFor(t => t.Name)
+
+    @Html.LabelFor(t => t.Race)
+    @Html.DropDownListFor(t => t.Race, Html.GetEnumSelectList(typeof(Races)))
+
+    @Html.LabelFor(t => t.Class)
+    @Html.DropDownListFor(t => t.Class, Html.GetEnumSelectList(typeof(Classes)))
+
+    <input type="submit" value="Update" />
+</form>

@@ -1,4 +1,5 @@
 ﻿using dnd_manager_webapp.Models;
+using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using System.Security.Claims;
 using System.Xml.Linq;
@@ -46,11 +47,10 @@ namespace dnd_manager_webapp.Data
         public void Update(Character character)
         {
             var old = Read(character.Name);
-            old.Name = character.Name;
-            old.Level = character.Level;
             old.Race = character.Race;
             old.Class = character.Class;
-            old.Description = $"{character.Name} is a level {character.Level} {character.Race} {character.Class}.";
+            old.Description = $"{character.Name} is a level {old.Level} {character.Race} {character.Class}.";
+            context.SaveChanges();
         }
 
         public void Delete(string name)
