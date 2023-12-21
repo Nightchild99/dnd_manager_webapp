@@ -1,0 +1,30 @@
+﻿@using dnd_manager_webapp.Models
+@model IEnumerable<Character>
+
+<h1>Manage your Party!</h1>
+
+<table>
+    <tr>
+        <th>Picture</th>
+        <th>Name</th>
+        <th>Level</th>
+        <th>Race</th>
+        <th>Class</th>
+        <th>Description</th>
+        <th>Actions</th>
+    </tr>
+    @foreach(var item in Model){
+        @:<tr>
+        @: <td><img height="100" src="@Url.Action("GetImage", "Party", new {id = item.Id})"/></td>
+        @: <td>@item.Name</td>
+        @: <td>@item.Level</td>
+        @: <td>@item.Race</td>
+        @: <td>@item.Class</td>
+        @: <td>@item.Description</td>
+        //@: <td>
+        //@:    <a href="/hero/delete?name=@item.Name">Delete</a>
+        //@:    <a href="/hero/update?name=@item.Name">Update</a>
+        //@: </td>
+        @: </tr>
+    }
+</table>
