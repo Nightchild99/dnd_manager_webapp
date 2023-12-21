@@ -91,8 +91,15 @@ namespace dnd_manager_webapp.Controllers
         [HttpGet]
         public IActionResult LevelUp(string name)
         {
-            _repo.LevelUp(name);
-            return RedirectToAction(nameof(Index));
+            if (_repo.Read(name).Level == 20)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            else
+            {
+                _repo.LevelUp(name);
+                return RedirectToAction(nameof(Index));
+            }
         }
     }
 }
